@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: idream-ms-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: idream-ms
+  template:
+    metadata:
+      labels:
+        app: idream-ms
+    spec:
+      containers:
+        - name: idream-ms-container
+          image: saktiranjan/idream-repo:latest
+          ports:
+            - containerPort: 8080
